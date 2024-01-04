@@ -24,6 +24,40 @@ public class CustomersController : ControllerBase
         return result;
     }
 
+    [HttpGet("getByFirstName")]
+    public async Task<ApiResponse<List<CustomerResponse>>> GetByFirstName([FromQuery] string firstName)
+    {
+        var operation = new GetCustomerByParameterQuery(FirstName: firstName);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet("getByLastName")]
+    public async Task<ApiResponse<List<CustomerResponse>>> GetByLastName([FromQuery] string lastName)
+    {
+        var operation = new GetCustomerByParameterQuery(LastName: lastName);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet("GetByIdentityNumber")]
+    public async Task<ApiResponse<List<CustomerResponse>>> GetByIdentityNumber([FromQuery] string identityNumber)
+    {
+        var operation = new GetCustomerByParameterQuery(IdentityNumber: identityNumber);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+    [HttpGet("GetBy")]
+    public async Task<ApiResponse<List<CustomerResponse>>> GetBy(
+        [FromQuery] string? identityNumber = null, 
+        [FromQuery] string? firstName = null,
+        [FromQuery] string? lastName = null)
+    {
+        var operation = new GetCustomerByParameterQuery(IdentityNumber: identityNumber, FirstName: firstName, LastName: lastName);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
     [HttpGet("{id}")]
     public async Task<ApiResponse<CustomerResponse>> Get(int id)
     {
