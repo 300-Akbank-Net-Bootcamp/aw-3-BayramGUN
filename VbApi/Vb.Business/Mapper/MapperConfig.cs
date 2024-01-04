@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Vb.Data.Entity;
 using Vb.Schema;
 

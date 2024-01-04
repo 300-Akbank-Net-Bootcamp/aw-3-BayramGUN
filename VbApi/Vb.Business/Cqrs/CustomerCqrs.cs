@@ -11,4 +11,4 @@ public record DeleteCustomerCommand(int Id) : IRequest<ApiResponse>;
 
 public record GetAllCustomerQuery() : IRequest<ApiResponse<List<CustomerResponse>>>;
 public record GetCustomerByIdQuery(int Id) : IRequest<ApiResponse<CustomerResponse>>;
-public record GetCustomerByParameterQuery(string FirstName,string LastName,string IdentiyNumber) : IRequest<ApiResponse<List<CustomerResponse>>>;
+public record GetCustomerByParameterQuery(string? FirstName = null, string? LastName = null, string? IdentityNumber = null) : IRequest<ApiResponse<List<CustomerResponse>>>;

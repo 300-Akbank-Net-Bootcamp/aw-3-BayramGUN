@@ -61,9 +61,9 @@ public class CustomerQueryHandler :
             .Include(x => x.Contacts)
             .Include(x => x.Addresses)
             .Where(x =>
-            x.FirstName.ToUpper().Contains(request.FirstName.ToUpper()) ||
-            x.LastName.ToUpper().Contains(request.LastName.ToUpper()) ||
-            x.IdentityNumber.ToUpper().Contains(request.IdentiyNumber.ToUpper())
+                string.Equals(x.FirstName, request.FirstName, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(x.LastName, request.LastName, StringComparison.OrdinalIgnoreCase) ||
+                x.IdentityNumber.ToUpper().Contains(request.IdentityNumber!.ToUpper())
         ).ToListAsync(cancellationToken);
         
         var mappedList = mapper.Map<List<Customer>, List<CustomerResponse>>(list);
