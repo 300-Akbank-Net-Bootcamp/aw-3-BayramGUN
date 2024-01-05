@@ -1,0 +1,11 @@
+@host=localhost:5169
+
+PUT {{host}}/api/Accounts/{id}
+
+{
+  "customerId": 0,
+  "iban": "string",
+  "balance": 0,
+  "currencyType": "string",
+  "name": "string"
+}

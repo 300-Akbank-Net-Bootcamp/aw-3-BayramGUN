@@ -1,5 +1,6 @@
 using System.Data;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using Vb.Data;
 using Vb.Data.Entity;
 using Vb.Schema;
@@ -37,9 +38,16 @@ public class CreateAddressValidator : AbstractValidator<AddressRequest>
             .WithName("Customer address line 2");
 
         RuleFor(x => x.Id).NotNull().NotEmpty()
-            .Must((id) =>
-            !IsUnique(Id: id));
+            .Must((model, id) =>
+            !IsUnique(Id: id))
+            .WithMessage((id) => $"{id} can not created as unique from system!");
+        RuleFor(x => x.IsDefault)
+            .NotNull()
+            .NotEmpty();
     }
-    private bool IsUnique(string? Information = null, int? Id = null) =>
+    private bool IsUnique(int? Id = null) =>
         vbDbContext.Set<Address>().Any(e => e.Id == Id);
+    
+    
+    
 }

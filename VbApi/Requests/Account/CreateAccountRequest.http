@@ -1,0 +1,11 @@
+@host=http://localhost:5169
+
+POST {{host}}/api/Accounts
+
+{
+  "customerId": 0,
+  "iban": "string",
+  "balance": 0,
+  "currencyType": "string",
+  "name": "string"
+}

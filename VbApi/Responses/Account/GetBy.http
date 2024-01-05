@@ -1,0 +1,8 @@
+@host=localhost:5169
+@accountName="deneme"
+@customerId=11111111111
+GET {{host}}/api/Accounts/GetByCustomerId?accountName={{accountName}}
+
+GET {{host}}/api/Accounts/GetByCustomerId?customerId={{customerId}}
+
+GET {{host}}/api/Accounts/GetByCustomerId?customerId={{customerId}}&accountName={{accountName}}

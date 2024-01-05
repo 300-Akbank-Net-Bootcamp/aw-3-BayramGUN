@@ -32,6 +32,33 @@ public class AccountsController : ControllerBase
         return result;
     }
 
+    [HttpGet("GetByCustomerId")]
+    public async Task<ApiResponse<List<AccountResponse>>> GetByCustomerId([FromQuery] int customerId)
+    {
+        var operation = new GetAccountByParameterQuery(CustomerId: customerId);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+    [HttpGet("GetByAccountName")]
+    public async Task<ApiResponse<List<AccountResponse>>> GetByAccountName([FromQuery] string accountName)
+    {
+        var operation = new GetAccountByParameterQuery(AccountName: accountName);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
+
+    [HttpGet("GetBy")]
+    public async Task<ApiResponse<List<AccountResponse>>> GetBy(
+        [FromQuery] int?  customerId = null, 
+        [FromQuery] string? accountName = null)
+    {
+        var operation = new GetAccountByParameterQuery(CustomerId: customerId, AccountName: accountName);
+        var result = await mediator.Send(operation);
+        return result;
+    }
+
     [HttpPost]
     public async Task<ApiResponse<AccountResponse>> Post([FromBody] AccountRequest account)
     {
@@ -55,4 +82,6 @@ public class AccountsController : ControllerBase
         var result = await mediator.Send(operation);
         return result;
     }
+
+
 }

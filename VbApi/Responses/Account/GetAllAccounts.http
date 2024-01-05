@@ -1,0 +1,3 @@
+@host=localhost:5169
+
+GET {{host}}/api/Accounts

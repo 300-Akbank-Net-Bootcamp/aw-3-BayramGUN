@@ -1,0 +1,10 @@
+@host=localhost:5169
+
+PUT {{host}}/api/Contacts/{id}
+
+{
+  "customerId": 0,
+  "contactType": "string",
+  "information": "string",
+  "isDefault": true
+}

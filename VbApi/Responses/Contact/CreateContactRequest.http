@@ -1,0 +1,10 @@
+@host=http://localhost:5169
+
+POST {{host}}/api/Contacts
+
+{
+  "customerId": 0,
+  "contactType": "string",
+  "information": "string",
+  "isDefault": true
+}

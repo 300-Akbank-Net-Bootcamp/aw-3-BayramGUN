@@ -1,0 +1,5 @@
+@host=http://localhost:5169
+@accountId=000000
+
+
+GET {{host}}/api/Accounts/{{accountId}}

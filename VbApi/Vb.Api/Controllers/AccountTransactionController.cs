@@ -32,8 +32,8 @@ public class AccountTransactionsController : ControllerBase
         return result;
     }
 
-    [HttpGet("getReferenceNumber")]
-    public async Task<ApiResponse<List<AccountTransactionResponse>>> GetByReference([FromQuery] string referenceNumber)
+    [HttpGet("getByReferenceNumber")]
+    public async Task<ApiResponse<List<AccountTransactionResponse>>> GetByReferenceNumber([FromQuery] string referenceNumber)
     {
         var operation = new GetAccountTransactionByParameterQuery(ReferenceNumber: referenceNumber);
         var result = await mediator.Send(operation);

@@ -10,5 +10,5 @@ public record UpdateAccountCommand(int Id, AccountRequest Model) : IRequest<ApiR
 public record DeleteAccountCommand(int Id) : IRequest<ApiResponse>;
 
 public record GetAllAccountQuery() : IRequest<ApiResponse<List<AccountResponse>>>;
-public record GetAccountByParameterQuery(int? AccountNumber = null, string? AccountName = null) : IRequest<ApiResponse<List<AccountResponse>>>;
+public record GetAccountByParameterQuery(int? CustomerId = null, string? AccountName = null) : IRequest<ApiResponse<List<AccountResponse>>>;
 public record GetAccountByIdQuery(int Id) : IRequest<ApiResponse<AccountResponse>>;

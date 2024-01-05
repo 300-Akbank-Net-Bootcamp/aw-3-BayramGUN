@@ -56,7 +56,7 @@ public class AccountQueryHandler :
         var list =  await dbContext.Set<Account>()
             .Include(x => x.EftTransactions)
             .Where(x => 
-                x.AccountNumber == request.AccountNumber ||
+                x.CustomerId == request.CustomerId ||
                 string.Equals(x.Name, request.AccountName, StringComparison.OrdinalIgnoreCase)
             )
             .ToListAsync(cancellationToken);

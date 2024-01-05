@@ -1,0 +1,14 @@
+@host=localhost:5169
+
+PUT {{host}}/api/Addresses/{id}
+
+{
+  "customerId": 0,
+  "address1": "string",
+  "address2": "string",
+  "country": "string",
+  "city": "string",
+  "county": "string",
+  "postalCode": "string",
+  "isDefault": true
+}

@@ -1,0 +1,3 @@
+@host=localhost:5169
+@customerId=11111111111
+GET {{host}}/api/Accounts/GetByCustomerId?customerId={{customerId}}
