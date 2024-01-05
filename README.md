@@ -23,7 +23,7 @@
     services.AddDbContext<VbDbContext>(options => options.UseSqlServer(connection));
 ```
 
-[Click here to go to see documentation](/VbApi/Documents/index.html)
+[Click here to go to see documentation](https://vbapi.netlify.app/)
 
 ### Note
 
