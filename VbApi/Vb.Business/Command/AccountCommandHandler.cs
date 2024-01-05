@@ -11,8 +11,8 @@ namespace Vb.Business.Command;
 
 public class AccountCommandHandler :
     IRequestHandler<CreateAccountCommand, ApiResponse<AccountResponse>>,
-    IRequestHandler<UpdateAccountCommand,ApiResponse>,
-    IRequestHandler<DeleteAccountCommand,ApiResponse>
+    IRequestHandler<UpdateAccountCommand, ApiResponse>,
+    IRequestHandler<DeleteAccountCommand, ApiResponse>
 
 {
     private readonly VbDbContext dbContext;

@@ -11,7 +11,8 @@ namespace Vb.Business.Query;
 
 public class AddressQueryHandler :
     IRequestHandler<GetAllAddressQuery, ApiResponse<List<AddressResponse>>>,
-    IRequestHandler<GetAddressByIdQuery, ApiResponse<AddressResponse>>
+    IRequestHandler<GetAddressByIdQuery, ApiResponse<AddressResponse>>,
+    IRequestHandler<GetAddressByParameterQuery, ApiResponse<List<AddressResponse>>>
 {
     private readonly VbDbContext dbContext;
     private readonly IMapper mapper;
@@ -46,5 +47,20 @@ public class AddressQueryHandler :
         
         var mapped = mapper.Map<Address, AddressResponse>(entity);
         return new ApiResponse<AddressResponse>(mapped);
+    }
+
+    public async Task<ApiResponse<List<AddressResponse>>> Handle(
+        GetAddressByParameterQuery request, 
+        CancellationToken cancellationToken)
+    {
+         var list =  await dbContext.Set<Address>()
+            .Include(x => x.Customer)
+            .ThenInclude(c => $"{c.FirstName} {c.LastName}")
+            .Where(x => string.Equals(x.City, request.City, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(x.PostalCode, request.PostalCode, StringComparison.OrdinalIgnoreCase))
+            .ToListAsync(cancellationToken);
+        
+        var mappedList = mapper.Map<List<Address>, List<AddressResponse>>(list);
+        return new ApiResponse<List<AddressResponse>>(mappedList);
     }
 }
