@@ -1,3 +1,0 @@
-@host=localhost:5169
-
-DELETE {{host}}/api/AccountTransactions/{id}

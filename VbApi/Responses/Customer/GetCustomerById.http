@@ -1,0 +1,5 @@
+@host=http://localhost:5169
+@customerId=000000
+
+
+GET {{host}}/api/Customers/{{customerId}}

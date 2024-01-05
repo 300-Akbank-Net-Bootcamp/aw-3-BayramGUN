@@ -1,0 +1,6 @@
+@host=localhost:5169
+@transactionDate="29.10.2023"
+@referenceNumber="11111111111123"
+GET {{host}}/api/AccountTransactions/GetByTransactionDate?transactionDate={{transactionDate}}
+GET {{host}}/api/AccountTransactions/GetByReferenceNumber?referenceNumber={{referenceNumber}}
+GET {{host}}/api/AccountTransactions/GetBy?referenceNumber={{referenceNumber}}&transactionDate={{transactionDate}}

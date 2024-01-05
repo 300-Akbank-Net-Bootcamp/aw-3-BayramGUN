@@ -1,0 +1,5 @@
+@host=http://localhost:5169
+@eftTransactionId=000000
+
+
+GET {{host}}/api/eftTransactions/{{eftTransactionId}}

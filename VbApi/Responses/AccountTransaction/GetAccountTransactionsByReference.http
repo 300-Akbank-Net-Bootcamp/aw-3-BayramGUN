@@ -1,0 +1,3 @@
+@host=localhost:5169
+@referenceNumber=11111111111
+GET {{host}}/api/AccountTransactions/GetByReferenceNumber?referenceNumber={{referenceNumber}}

@@ -22,3 +22,7 @@
     string connection = sqlConnectionStringBuilder.ConnectionString;
     services.AddDbContext<VbDbContext>(options => options.UseSqlServer(connection));
 ```
+
+### Note
+
+UpdateRequestValidators were not added because they validate same request models with the create methods in schemas.

@@ -1,0 +1,14 @@
+@host=http://localhost:5169
+
+POST {{host}}/api/EftTransactions
+
+{
+  "accountId": 0,
+  "referenceNumber": "string",
+  "transactionDate": "2024-01-05T18:37:54.440Z",
+  "amount": 0,
+  "description": "string",
+  "senderAccount": "string",
+  "senderIban": "string",
+  "senderName": "string"
+}

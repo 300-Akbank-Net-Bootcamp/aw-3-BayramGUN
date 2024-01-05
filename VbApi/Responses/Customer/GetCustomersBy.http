@@ -1,0 +1,14 @@
+@host=localhost:5169
+@firstName="John"
+@lastName="John"
+@identityNumber="111111111111"
+GET {{host}}/api/Customers/GetBy?firstName={{firstName}}
+GET {{host}}/api/Customers/GetBy?lastName={{lastName}}
+GET {{host}}/api/Customers/GetBy?identityNumber={{identityNumber}}
+
+GET {{host}}/api/Customers/GetBy?firstName={{firstName}}&lastName={{lastName}}
+GET {{host}}/api/Customers/GetBy?identityNumber={{identityNumber}}&lastName={{lastName}}
+GET {{host}}/api/Customers/GetBy?identityNumber={{identityNumber}}&firstName={{lastName}}
+GET {{host}}/api/Customers/GetBy?identityNumber={{identityNumber}}&firstName={{lastName}}&lastName={{lastName}}
+
+// all combinations
