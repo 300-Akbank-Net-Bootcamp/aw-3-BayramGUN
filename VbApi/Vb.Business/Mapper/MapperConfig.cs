@@ -29,10 +29,16 @@ public class MapperConfig : Profile
                 src => src.MapFrom(x => x.Customer.FirstName + " " + x.Customer.LastName));
 
         
-        CreateMap<AccountTransactionRequest, AccountTransaction>();
+        CreateMap<AccountTransactionRequest, AccountTransaction>()
+            .ForMember(dest => dest.TransactionDate,
+                src => src.MapFrom(x => DateTime.UtcNow));
+
         CreateMap<AccountTransaction, AccountTransactionResponse>();
         
-        CreateMap<EftTransactionRequest, EftTransaction>();
+        CreateMap<EftTransactionRequest, EftTransaction>()
+            .ForMember(dest => dest.TransactionDate,
+                src => src.MapFrom(x => DateTime.UtcNow));
+
         CreateMap<EftTransaction, EftTransactionResponse>();
     }
 }
