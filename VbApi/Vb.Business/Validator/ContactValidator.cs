@@ -31,7 +31,6 @@ public class CreateContactValidator : AbstractValidator<ContactRequest>
        /*  RuleFor(x => new { x.Information, x.ContactType })
             .Must((information, contactType) => 
                 !IsUnique()); */
-        RuleFor(x => x.ContactType).NotNull().NotEmpty();
         RuleFor(x => x.Id).NotNull().NotEmpty()
             .Must((id) => 
                 !IsUnique(Id: id));
