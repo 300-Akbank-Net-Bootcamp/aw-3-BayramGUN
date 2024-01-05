@@ -28,7 +28,7 @@ public class CreateAccountTransactionValidator : AbstractValidator<AccountTransa
         RuleFor(x => x.Amount).NotNull()
             .NotEmpty()
             .InclusiveBetween(
-                (decimal)-999999999999999999.9999, (decimal)999999999999999999.9999)
+                (decimal)0.0000, (decimal)999999999999999999.9999)
             .ScalePrecision(4, 18, false);
         RuleFor(x => x.Description).MaximumLength(300);
 
@@ -41,5 +41,6 @@ public class CreateAccountTransactionValidator : AbstractValidator<AccountTransa
         vbDbContext.Set<AccountTransaction>().Any(e => e.Id == Id ||
             e.AccountId == AccountId ||
             string.Equals(ReferenceNumber, e.ReferenceNumber));
+    
     
 }
