@@ -11,12 +11,15 @@ namespace Vb.Business.Validator;
 public class CreateContactValidator : AbstractValidator<ContactRequest>
 {
     private readonly VbDbContext vbDbContext;
-    public CreateContactValidator(VbDbContext vbDbContext)
-    {
-        {
+     public CreateContactValidator(VbDbContext vbDbContext)
+    { 
             this.vbDbContext = vbDbContext;
-        }
-         
+    }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public CreateContactValidator()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    {
+        
         RuleFor(x => x.CustomerId).NotNull().NotEmpty();
 
         RuleFor(x => x.Information).NotNull().NotEmpty()

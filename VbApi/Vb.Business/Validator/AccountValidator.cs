@@ -11,9 +11,14 @@ public class CreateAccountValidator : AbstractValidator<AccountRequest>
     private readonly VbDbContext vbDbContext;
     public CreateAccountValidator(VbDbContext vbDbContext)
     {
-        {
-            this.vbDbContext = vbDbContext;
-        }
+        this.vbDbContext = vbDbContext;
+    }
+    
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public CreateAccountValidator()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    {
+        
          
         RuleFor(x => x.CustomerId).NotNull().NotEmpty();
         RuleFor(x => x.AccountNumber).NotNull().NotEmpty()
