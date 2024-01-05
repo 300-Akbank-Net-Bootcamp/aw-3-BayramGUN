@@ -21,8 +21,7 @@ public class AccountTransactionCommandHandler :
 
     public AccountTransactionCommandHandler(
         VbDbContext dbContext,
-        IMapper mapper,
-        AccountCommandHandler accountCommandHandler)
+        IMapper mapper)
     {
         this.dbContext = dbContext;
         this.mapper = mapper;

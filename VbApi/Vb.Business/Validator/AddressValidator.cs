@@ -9,11 +9,16 @@ namespace Vb.Business.Validator;
 public class CreateAddressValidator : AbstractValidator<AddressRequest>
 {
     private readonly VbDbContext vbDbContext;
+
     public CreateAddressValidator(VbDbContext vbDbContext)
     {
-        {
             this.vbDbContext = vbDbContext;
-        }
+    }
+
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public CreateAddressValidator()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    {
         RuleFor(x => x.PostalCode)
             .NotEmpty()
             .MaximumLength(6)
