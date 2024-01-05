@@ -23,6 +23,8 @@
     services.AddDbContext<VbDbContext>(options => options.UseSqlServer(connection));
 ```
 
+[Click here to go to see documentation](/VbApi/Documents/index.html)
+
 ### Note
 
 UpdateRequestValidators were not added because they validate same request models with the create methods in schemas.
